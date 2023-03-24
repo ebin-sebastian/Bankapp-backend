@@ -1,0 +1,90 @@
+first created json package for using 3rd party libraries   by command   --- npm init
+
+next we install express for server with command -- npm i express
+
+server runs on 3000 series 
+
+when we update and run the server, the updates wont be visible when running server by node...so we use nodemon for instant updates.
+
+-------
+// Get request
+app.get('/')       ('/')  slash is used for the landing page where in angular it was just ''
+
+
+----------
+jwt --- to create token     |||  it is used for user authentication
+jsonwebtoken -- library used to generate tokens -- npm  i jsonwebtoken
+sign() -- method to generate token 
+
+validating token
+
+middleware ---middleware is a function that sits between the client and server and processes incoming requests
+ before they reach the server. Middleware functions have access to the request and response objects, and they can
+manipulate or enhance these objects, perform authentication or authorization, parse request data, and perform other tasks.
+
+middleware ---- 3 arguments || req, res, next ||
+1. application specific middleware 
+2. Router specific middleware
+
+
+
+
+
+----------------------
+mongodb
+---------
+
+mongo shell commands
+-----------------
+
+show dbs  ---to see databases
+
+use database_name  --- to use database
+
+show collections   ---see collections inside that db
+
+db.users.find()--- view datas inside collection
+
+db.users.findOne({acno:1000}) ---- particular single data
+                                    present-object
+                                    not present- null
+to insert data
+ db.users.insertOne({"acno":1000,"username":"leo","password":"messi","balance":0,"transaction":[]})
+ db.users.insertOne({"acno":1000,"password":"messi","transaction":[]})
+
+ display person having balance 1 lakh above balance 
+    db.users.find({balance:{$gt:100000}})
+
+delete data
+    db.users.deleteOne({acno:1002})
+
+update
+    db.users.updateOne({username:"neymar"},{$set{username:"Neymar Jr"}})
+
+    db.users.updateOne({username:"neymar"},{$set{username:"Neymar Jr"}},upsert:true)
+
+
+
+CRUD  create read update delete
+  
+register  insert
+login     findOne
+deposit   update
+withdraw  update
+
+
+bank server backend
+-------------------
+
+serverr mongodb integration
+ -- mongoose             -(library )Mongoose is a library that helps developers 
+                            interact with MongoDB databases in Node.js applications
+       npm i mongoose
+
+
+
+
+Different Port communication (data sharing) --cors  (Cross Origin Resource Sharing)
+-----------------------------------------------------------------------------------
+
+install ---  npm i cors
